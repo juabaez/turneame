@@ -1,4 +1,4 @@
-package main;
+package com.turneame.main;
 
 public class Main {
 
