@@ -21,7 +21,8 @@ public class PersistenceListener implements ServletContextListener {
 		if (emf != null)
 			emf.close();
 	}
-	
+
+	// Method static for be used when add, modify, delete and list objects from db.	
 	public static EntityManager createEntityManager() {
         if (emf == null) {
             throw new IllegalStateException("Context is not initialized yet.");
