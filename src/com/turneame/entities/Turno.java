@@ -1,28 +1,28 @@
 package com.turneame.entities;
 
-import java.net.URL;
+import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
 
 @Entity
-@Table(name = "Turno")
-public class Turno {
-
-    private Integer id;
-
+public class Turno implements Serializable {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-
     private String notes;
-
-    private URL website;
-
+    private String website;
     private boolean starred;
+    
+    public Turno() {
+    	
+    }
 
-	public Turno(Integer id, String name, String notes, URL website, boolean starred) {
+	public Turno(Long id, String name, String notes, String website, boolean starred) {
 		super();
 		this.id = id;
 		this.setName(name);
@@ -30,9 +30,7 @@ public class Turno {
 		this.setWebsite(website);
 		this.setStarred(starred);
 	}
-
-	@Id
-	@Column(name = "starred")
+	
 	public boolean isStarred() {
 		return starred;
 	}
@@ -41,11 +39,11 @@ public class Turno {
 		this.starred = starred;
 	}
 
-	public URL getWebsite() {
+	public String getWebsite() {
 		return website;
 	}
 
-	public void setWebsite(URL website) {
+	public void setWebsite(String website) {
 		this.website = website;
 	}
 
@@ -65,11 +63,11 @@ public class Turno {
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
